@@ -8,38 +8,33 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const loader = new GLTFLoader();
-let model;
+
+const modelUrl = 'candyreal.glb'; // Assuming the .glb file is in the same directory as your HTML and JavaScript files
+
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambientLight);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+directionalLight.position.set(0, 1, 0);
+scene.add(directionalLight);
 
 loader.load(
-    'modal for threes/scene.gltf', // Replace with the path to your model
+    modelUrl,
     (gltf) => {
-        model = gltf.scene;
+        const model = gltf.scene;
         scene.add(model);
-
-        // You might need to adjust the position and scale of the model
-        model.position.set(0, 0, 0);
-        model.scale.set(1, 1, 1);
-
+        camera.position.z = 2;
         animate();
     },
     undefined,
     (error) => {
-        console.error('Error loading GLTF model:', error);
+        console.error('Error loading GLB model:', error);
     }
 );
 
-camera.position.z = 5;
-
-const animate = () => {
+function animate() {
     requestAnimationFrame(animate);
-
-    if (model) {
-        // Add animations or interactions here if needed
-    }
-
     renderer.render(scene, camera);
-};
+}
 
-animate();
 
 
