@@ -1,5 +1,5 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.131.2/build/three.module.js';
-import { GLTFLoader } from './path-to-three.js/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.131.2/examples/jsm/loaders/GLTFLoader.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -11,7 +11,7 @@ const loader = new GLTFLoader();
 let model;
 
 loader.load(
-    'model for threes/scene.gltf', // Replace with the path to your model
+    'modal for threes/scene.gltf', // Replace with the path to your model
     (gltf) => {
         model = gltf.scene;
         scene.add(model);
