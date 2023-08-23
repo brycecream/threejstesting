@@ -1,15 +1,12 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.131.2/build/three.module.js';
-import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.131.2/examples/jsm/loaders/GLTFLoader.js';
-
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const loader = new GLTFLoader();
+const loader = new THREE.GLTFLoader();
 
-const modelUrl = 'candyreal.glb'; // Assuming the .glb file is in the same directory as your HTML and JavaScript files
+const modelUrl = 'candyreal.glb';
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
